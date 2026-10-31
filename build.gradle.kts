@@ -39,7 +39,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-thymeleaf-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webservices-test")
-    testImplementation("org.springframework.boot:spring-boot-starter-testcontainers:4.1.2")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
     // --> TUTAJ DODAJ JAWNE WERSJE <--
