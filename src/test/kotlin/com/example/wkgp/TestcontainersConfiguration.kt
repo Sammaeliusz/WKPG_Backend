@@ -11,8 +11,7 @@ class TestcontainersConfiguration {
 
     @Bean
     @ServiceConnection
-    fun postgresContainer(): PostgreSQLContainer {
+    fun postgresContainer(): PostgreSQLContainer<*> {
         return PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
     }
-
 }
