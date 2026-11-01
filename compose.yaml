@@ -1,6 +1,7 @@
 services:
   postgres:
     image: 'postgres:latest'
+    container_name: wkgp-backend-postgres-1
     environment:
       - 'POSTGRES_PASSWORD=SS3bSKpOprLzPz'
       - 'POSTGRES_DB=WKGP'
@@ -15,13 +16,13 @@ services:
   app:
     build: .
     image: wkgp-backend:latest
-    depends_on:
-      postgres:
-        condition: service_healthy
-    restart: always
     environment:
-      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://172.19.0.2:5432/WKGP'
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/WKGP'
       - 'SPRING_DATASOURCE_USERNAME=admin'
       - 'SPRING_DATASOURCE_PASSWORD=SS3bSKpOprLzPz'
     ports:
       - '8081:8080'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: always
