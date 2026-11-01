@@ -6,7 +6,7 @@ services:
       - 'POSTGRES_DB=WKGP'
       - 'POSTGRES_USER=admin'
     ports:
-      - '5432'
+      - '5432:5432'
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U admin -d WKGP']
       interval: 5s
