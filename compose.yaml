@@ -18,6 +18,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    restart: always
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://172.19.0.2:5432/WKGP'
       - 'SPRING_DATASOURCE_USERNAME=admin'
