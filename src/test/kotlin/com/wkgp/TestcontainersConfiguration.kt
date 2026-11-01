@@ -1,4 +1,4 @@
-package com.example.wkgp
+package com.wkgp
 
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection

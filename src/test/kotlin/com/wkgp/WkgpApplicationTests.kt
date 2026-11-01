@@ -1,4 +1,4 @@
-package com.example.wkgp
+package com.wkgp
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

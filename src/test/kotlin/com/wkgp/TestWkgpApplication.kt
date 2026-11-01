@@ -1,4 +1,4 @@
-package com.example.wkgp
+package com.wkgp
 
 import org.springframework.boot.fromApplication
 import org.springframework.boot.with
