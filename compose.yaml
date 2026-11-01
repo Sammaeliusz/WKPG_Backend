@@ -19,7 +19,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/WKGP'
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://172.19.0.2:5432/WKGP'
       - 'SPRING_DATASOURCE_USERNAME=admin'
       - 'SPRING_DATASOURCE_PASSWORD=SS3bSKpOprLzPz'
     ports:
