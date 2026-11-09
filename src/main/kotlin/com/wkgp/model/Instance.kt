@@ -14,7 +14,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "KOLEKCJA")
-data class Instances(
+data class Instance(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val ID: Int,
