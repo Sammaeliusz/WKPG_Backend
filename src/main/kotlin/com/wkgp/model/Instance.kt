@@ -17,13 +17,13 @@ import jakarta.persistence.Table
 data class Instance(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val ID: Int,
+    val id: Int,
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "WlascicielId")
+    @JoinColumn(name = "Wlasciciel_ID", referencedColumnName = "ID")
     val player: Player,
-    @ManyToMany
-    @JoinTable(name = "GRA")
-    val gra: Collection<BoardGame>,
+    @ManyToOne
+    @JoinColumn(name = "GRA_ID", referencedColumnName = "ID")
+    val gra: BoardGame,
     @Column(name="Dostepna")
     val available: Boolean,
     @Column(name = "Ocena")

@@ -12,11 +12,11 @@ import jakarta.persistence.Table
 data class BoardGame(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val ID: Int,
+    val id: Int,
     @Column(name = "Nazwa")
     val name: String,
     @Column(name = "Ciezkosc")
-    val Weight: Double,
+    val weight: Double,
     @Column(name = "Min_graczy")
     val minPlayers: Int,
     @Column(name = "Max_graczy")

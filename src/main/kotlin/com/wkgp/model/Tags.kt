@@ -12,7 +12,7 @@ import jakarta.persistence.Table
 data class Tags(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val ID: Int,
+    val id: Int,
     @Column("Zawartosc")
     val content: String,
 )
