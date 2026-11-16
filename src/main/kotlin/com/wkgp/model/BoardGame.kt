@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumns
 import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
+import java.sql.Time
 
 @Entity
 @Table(name = "GRA")
@@ -27,7 +28,7 @@ data class BoardGame(
     @Column(name = "Max_graczy")
     val maxPlayers: Int,
     @Column(name = "Czas")
-    val time: String,
+    val time: Time,
     @Column(name = "Gatunek")
     val genre: Int,
     @Column(name = "Kooperacja")

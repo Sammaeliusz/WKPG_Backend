@@ -10,6 +10,8 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
+import java.sql.Time
+
 @Entity
 @Table(name = "GRACZ")
 data class Player(
@@ -25,7 +27,7 @@ data class Player(
     @Column(name = "Max_ciezkosc")
     val maxWeight:Double?,
     @Column(name = "Preferowany_czas")
-    val prefTime:Double?,
+    val prefTime: Time?,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(name = "ZNAJOMI", joinColumns = [(JoinColumn(name = "Gracz1_id"))], inverseJoinColumns = [(JoinColumn(name = "Gracz2_id"))])
     val friends: MutableSet<Player>?,

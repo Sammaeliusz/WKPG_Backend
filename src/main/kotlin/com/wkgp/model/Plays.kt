@@ -11,6 +11,7 @@ import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
+import java.sql.Time
 
 @Entity
 @Table(name = "ROZGRYWKI")
@@ -22,11 +23,11 @@ data class Plays(
     @JoinColumn(name = "Gra_id")
     val gra: BoardGame,
     @Column(name = "Czas_rozgrywki")
-    val playtime: Long,
+    val playtime: Time,
     @Column(name = "Data_rozgrywki")
     val dateOfPlay: String,
     @OneToMany(cascade = [(CascadeType.MERGE)])
-    @JoinTable("GRACZE_ROZGRYWKI", joinColumns = [JoinColumn(name = "ID")])
+    @JoinTable("GRACZE_ROZGRYWKI", joinColumns = [JoinColumn(name = "id")])
     @JoinColumn(name = "Gracz_Id")
     val players:MutableList<Player>
 )
