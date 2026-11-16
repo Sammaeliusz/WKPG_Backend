@@ -1,10 +1,15 @@
 package com.wkgp.model
 
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.JoinColumns
+import jakarta.persistence.JoinTable
+import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
 
 @Entity
@@ -27,4 +32,7 @@ data class BoardGame(
     val genre: Int,
     @Column(name = "Kooperacja")
     val coop: Boolean,
+    @ManyToMany(cascade = [(CascadeType.MERGE)])
+    @JoinTable(name = "TAG_GRY", joinColumns = [(JoinColumn(name = "Gra_Id"))], inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))])
+    val gameTags: MutableSet<Tags>,
 )

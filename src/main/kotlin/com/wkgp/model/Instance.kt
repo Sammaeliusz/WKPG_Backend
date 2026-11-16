@@ -1,5 +1,6 @@
 package com.wkgp.model
 
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -28,5 +29,7 @@ data class Instance(
     val available: Boolean,
     @Column(name = "Ocena")
     val rating: Int,
-
+    @ManyToMany(cascade = [(CascadeType.MERGE)])
+    @JoinTable(name = "TAG_GRY", joinColumns = [(JoinColumn(name = "Instancja_Id"))], inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))])
+    val gameTags: MutableSet<Tags>,
     )

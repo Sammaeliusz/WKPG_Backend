@@ -2,6 +2,7 @@ package com.wkgp.controllers
 
 import com.wkgp.dataSources.InstancesRepository
 import com.wkgp.dataSources.PlayerRepository
+import com.wkgp.dataSources.PlaysRepository
 import com.wkgp.dataSources.TagRepository
 import com.wkgp.model.Player
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,6 +20,8 @@ class WebController {
     lateinit var tagRepo: TagRepository
     @Autowired
     lateinit var instanceRepo: InstancesRepository
+    @Autowired
+    lateinit var playsRepo: PlaysRepository
     @RequestMapping("/findAll")
     fun findAll(): MutableIterable<Player> = playerRepo.findAll();
 
