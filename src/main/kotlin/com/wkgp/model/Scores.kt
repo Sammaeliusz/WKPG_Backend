@@ -17,7 +17,7 @@ class Scores(
     var id: Int,
     @ManyToOne
     @JoinColumn(name = "gracz_id")
-    val player: Player,
+    var player: Player,
     @Column(name = "Miejsce")
     var place : Int,
     @Column(name = "Punkty")
