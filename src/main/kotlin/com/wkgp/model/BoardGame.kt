@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
-import jakarta.persistence.JoinColumns
 import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
@@ -15,25 +14,27 @@ import java.sql.Time
 
 @Entity
 @Table(name = "GRA")
-data class BoardGame(
+class BoardGame(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @Column(name = "Nazwa")
-    val name: String,
+    var name: String,
     @Column(name = "Ciezkosc")
-    val weight: Double,
+    var weight: Double,
     @Column(name = "Min_graczy")
-    val minPlayers: Int,
+    var minPlayers: Int,
     @Column(name = "Max_graczy")
-    val maxPlayers: Int,
+    var maxPlayers: Int,
     @Column(name = "Czas")
-    val time: Time,
+    var time: Time,
     @Column(name = "Gatunek")
-    val genre: Int,
+    var genre: String,
     @Column(name = "Kooperacja")
-    val coop: Boolean,
+    var coop: Boolean,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(name = "TAG_GRY", joinColumns = [(JoinColumn(name = "Gra_Id"))], inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))])
-    val gameTags: MutableSet<Tags>,
-)
+    var gameTags: MutableSet<Tags>,
+) {
+
+}

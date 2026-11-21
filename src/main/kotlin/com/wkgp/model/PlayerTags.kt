@@ -13,13 +13,13 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "tag_gracze")
-data class PlayerTags(
+class PlayerTags(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @ManyToOne
     @JoinColumn(name = "tag_id")
-    val tag:Tags,
+    var tag:Tags,
     @Column(name = "Lubi")
-    val like: Boolean
+    var like: Boolean
 )

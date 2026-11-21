@@ -15,21 +15,22 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "KOLEKCJA")
-data class Instance(
+class Instance(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Wlasciciel_ID", referencedColumnName = "ID")
-    val player: Player,
+    var player: Player,
     @ManyToOne
     @JoinColumn(name = "GRA_ID", referencedColumnName = "ID")
-    val game: BoardGame,
+    var game: BoardGame,
     @Column(name="Dostepna")
-    val available: Boolean,
+    var available: Boolean,
     @Column(name = "Ocena")
-    val rating: Int,
+    var rating: Int,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(name = "TAG_GRY", joinColumns = [(JoinColumn(name = "Instancja_Id"))], inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))])
-    val gameTags: MutableSet<Tags>,
-    )
+    var gameTags: MutableSet<Tags>?
+    ) {
+}

@@ -9,10 +9,11 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "TAGI")
-data class Tags(
+class Tags(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @Column("Zawartosc")
-    val content: String,
-)
+    var content: String,
+) {
+}
