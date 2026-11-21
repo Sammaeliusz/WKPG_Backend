@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PlaysRepository: CrudRepository<Plays, Long> {
-    fun findAllByGra(gra: BoardGame): MutableList<Plays>?
+    fun findAllByGame(gra: BoardGame): MutableList<Plays>?
     fun findAllByScoresAndId(
         scores: kotlin.collections.MutableList<com.wkgp.model.Scores>,
         id: Int

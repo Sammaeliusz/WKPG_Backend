@@ -22,7 +22,7 @@ data class Plays(
     val id: Int,
     @ManyToOne(cascade = [(CascadeType.MERGE)])
     @JoinColumn(name = "Gra_id")
-    val gra: BoardGame,
+    val game: BoardGame,
     @Column(name = "Czas_rozgrywki")
     val playtime: Time,
     @Column(name = "Data_rozgrywki")

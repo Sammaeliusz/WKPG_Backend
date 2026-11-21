@@ -26,7 +26,7 @@ class CollectionController {
     fun findName(@PathVariable id: Int, @PathVariable name: String): MutableList<Instance>?{
         val tmp_game: BoardGame? = boardGameRepo.findByName(name)
         return if (tmp_game != null){
-            instanceRepo.findAllByPlayerAndGra(playerRepo.findById(id)!!, tmp_game)
+            instanceRepo.findAllByPlayerAndGame(playerRepo.findById(id)!!, tmp_game)
         }else{
             null;
         }

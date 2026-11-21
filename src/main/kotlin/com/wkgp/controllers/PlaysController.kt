@@ -24,7 +24,7 @@ class PlaysController {
     fun findPlaysByGame(@PathVariable game: String): MutableList<Plays>?{
         val tmpGame: BoardGame? = boardGameRepo.findByName(game);
         return if (tmpGame != null){
-            playsRepo.findAllByGra(tmpGame);
+            playsRepo.findAllByGame(tmpGame);
         }else{
             null;
         }

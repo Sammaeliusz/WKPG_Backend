@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface BorrowingsRepository: CrudRepository<Borrowings, Long> {
     fun findBorrowingsByBorrowerIs(borrower: Player): MutableList<Borrowings>
-    fun findBorrowingsByGraIsIn(gry: kotlin.collections.MutableCollection<com.wkgp.model.BoardGame>): kotlin.collections.MutableList<com.wkgp.model.Borrowings>
+    fun findBorrowingsByGameIsIn(gry: kotlin.collections.MutableCollection<com.wkgp.model.BoardGame>): kotlin.collections.MutableList<com.wkgp.model.Borrowings>
 }
