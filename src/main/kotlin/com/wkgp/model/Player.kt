@@ -14,24 +14,26 @@ import java.sql.Time
 
 @Entity
 @Table(name = "GRACZ")
-data class Player(
+class Player(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @Column(name = "Email")
-    val email: String,
+    var email: String,
     @Column(name = "Nazwa_gracza")
-    val name: String,
+    var name: String,
     @Column(name="PIN")
-    val pin: Int,
+    var pin: Int,
     @Column(name = "Max_ciezkosc")
-    val maxWeight:Double?,
+    var maxWeight: Double?,
     @Column(name = "Preferowany_czas")
-    val prefTime: Time?,
+    var prefTime: Time?,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(name = "ZNAJOMI", joinColumns = [(JoinColumn(name = "Gracz1_id"))], inverseJoinColumns = [(JoinColumn(name = "Gracz2_id"))])
-    val friends: MutableSet<Player>?,
+    var friends: MutableSet<Player>?,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
-    @JoinTable(name = "TAG_GRACZE", joinColumns = [(JoinColumn(name = "Gracz_Id"))])
-    val playerTags: MutableSet<Tags>?
-)
+    @JoinTable(name = "TAG_GRACZE", joinColumns = [(JoinColumn(name = "Grace_Id"))])
+    var playerTags: MutableSet<Tags>
+) {
+
+}

@@ -6,26 +6,26 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
-import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToOne
-import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
-import java.sql.Date
+import java.time.LocalDate
 
 @Entity
 @Table(name = "WYPOZYCZENIA")
-data class Borrowings(
+class Borrowings(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @ManyToOne
     @JoinColumn(name = "GRA_ID", referencedColumnName = "ID")
-    val game: BoardGame,
+    var game: Instance,
     @ManyToOne
     @JoinColumn(name = "Wypozyczajacy_ID", referencedColumnName = "ID")
-    val borrower: Player,
+    var borrower: Player,
     @Column(name = "Data_wypozyczenia")
-    val borrowDate: Date,
+    var borrowDate: LocalDate?,
     @Column(name = "Data_zwrotu")
-    val returnDate: Date
-)
+    var returnDate: LocalDate?
+) {
+
+}

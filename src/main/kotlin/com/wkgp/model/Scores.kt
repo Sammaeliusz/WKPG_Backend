@@ -11,17 +11,17 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "gracze_rozgrywki")
-data class Scores(
+class Scores(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @ManyToOne
     @JoinColumn(name = "gracz_id")
-    val player: Player,
+    var player: Player,
     @Column(name = "Miejsce")
-    val place : Int,
+    var place : Int,
     @Column(name = "Punkty")
-    val points:Int,
+    var points:Int,
     @Column(name="Rozgrywka_Id")
     val rozgrywkaId:Int,
 )

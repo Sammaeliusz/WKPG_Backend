@@ -13,21 +13,27 @@ import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import java.sql.Date
 import java.sql.Time
+import java.time.LocalDate
 
 @Entity
 @Table(name = "ROZGRYWKI")
-data class Plays(
+class Plays(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @ManyToOne(cascade = [(CascadeType.MERGE)])
     @JoinColumn(name = "Gra_id")
-    val game: BoardGame,
+    var game: Instance,
     @Column(name = "Czas_rozgrywki")
-    val playtime: Time,
+    var playtime: Time,
     @Column(name = "Data_rozgrywki")
-    val dateOfPlay: Date,
+    var dateOfPlay: LocalDate?,
+    @OneToMany(cascade = [(CascadeType.MERGE)])
+    @JoinTable("GRACZE_ROZGRYWKI", joinColumns = [JoinColumn(name = "id")])
+    @JoinColumn(name = "Gracz_Id")
+    var players: MutableList<Player>,
     @OneToMany(cascade = [(CascadeType.MERGE)])
     @JoinColumn("rozgrywka_id")
     val scores: MutableList<Scores>,
-)
+) {
+}
