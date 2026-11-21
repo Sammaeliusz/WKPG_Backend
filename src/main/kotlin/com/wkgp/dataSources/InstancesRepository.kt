@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface InstancesRepository: CrudRepository<Instance, Long> {
     fun findAllByPlayer(player: Player): MutableList<Instance>;
-    fun findAllByAvailable(available: Boolean): MutableList<Instance>
-    fun findAllByGra(gra: com.wkgp.model.BoardGame): kotlin.collections.MutableList<com.wkgp.model.Instance>
+    fun findAllByPlayerAndGra(player: Player, gra: BoardGame): MutableList<Instance>;
+    fun findAllByPlayerAndId(player: Player, id: Long): MutableList<Instance>;
+    fun findAllByPlayerAndAvailable(player: Player,available: Boolean): MutableList<Instance>
 }

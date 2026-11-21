@@ -22,4 +22,6 @@ data class Scores(
     val place : Int,
     @Column(name = "Punkty")
     val points:Int,
+    @Column(name="Rozgrywka_Id")
+    val rozgrywkaId:Int,
 )

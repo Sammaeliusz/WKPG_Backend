@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface ScoresRepository: CrudRepository<Scores, Long> {
     fun findAllByPlayer(player: com.wkgp.model.Player): kotlin.collections.MutableList<com.wkgp.model.Scores>?
+    fun findFirstByPlayer(player: Player): Scores;
 }
