@@ -24,7 +24,7 @@ data class Instance(
     val player: Player,
     @ManyToOne
     @JoinColumn(name = "GRA_ID", referencedColumnName = "ID")
-    val gra: BoardGame,
+    val game: BoardGame,
     @Column(name="Dostepna")
     val available: Boolean,
     @Column(name = "Ocena")
