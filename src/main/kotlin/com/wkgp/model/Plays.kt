@@ -11,6 +11,7 @@ import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
+import java.sql.Date
 import java.sql.Time
 
 @Entity
@@ -25,9 +26,8 @@ data class Plays(
     @Column(name = "Czas_rozgrywki")
     val playtime: Time,
     @Column(name = "Data_rozgrywki")
-    val dateOfPlay: String,
+    val dateOfPlay: Date,
     @OneToMany(cascade = [(CascadeType.MERGE)])
-    @JoinTable("GRACZE_ROZGRYWKI", joinColumns = [JoinColumn(name = "id")])
-    @JoinColumn(name = "Gracz_Id")
-    val players:MutableList<Player>
+    @JoinColumn("rozgrywka_id")
+    val scores: MutableList<Scores>,
 )
