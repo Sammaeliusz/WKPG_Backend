@@ -1,7 +1,7 @@
 FROM eclipse-temurin:25-jre
 
 WORKDIR /app
-COPY build/libs/WKGP-0.0.1-SNAPSHOT-plain.jar app.jar
+COPY build/libs/WKGP-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8081
 EXPOSE 5432

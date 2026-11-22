@@ -1,18 +1,11 @@
 package com.wkgp.model
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import java.time.LocalDate
 
 @Entity
 @Table(name = "WYPOZYCZENIA")
-class Borrowings(
+class Borrowing(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int,
@@ -26,6 +19,4 @@ class Borrowings(
     var borrowDate: LocalDate?,
     @Column(name = "Data_zwrotu")
     var returnDate: LocalDate?
-) {
-
-}
+)
