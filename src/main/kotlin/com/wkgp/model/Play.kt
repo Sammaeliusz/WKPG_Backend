@@ -1,23 +1,12 @@
 package com.wkgp.model
 
-import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.JoinTable
-import jakarta.persistence.ManyToOne
-import jakarta.persistence.OneToMany
-import jakarta.persistence.Table
-import java.sql.Date
+import jakarta.persistence.*
 import java.sql.Time
 import java.time.LocalDate
 
 @Entity
 @Table(name = "ROZGRYWKI")
-class Plays(
+class Play(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int,
@@ -34,6 +23,5 @@ class Plays(
     var players: MutableList<Player>,
     @OneToMany(cascade = [(CascadeType.MERGE)])
     @JoinColumn("rozgrywka_id")
-    val scores: MutableList<Scores>,
-) {
-}
+    var scores: MutableList<Score>,
+)

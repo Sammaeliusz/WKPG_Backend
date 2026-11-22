@@ -1,18 +1,18 @@
 package com.wkgp.dataSources
 
 import com.wkgp.model.BoardGame
-import com.wkgp.model.Player
-import com.wkgp.model.Plays
-import com.wkgp.model.Scores
+import com.wkgp.model.Play
+import com.wkgp.model.Score
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface PlaysRepository: CrudRepository<Plays, Long> {
-    fun findAllByGame(game: BoardGame): MutableList<Plays>?
+interface PlaysRepository : CrudRepository<Play, Long> {
+    fun findAllByGame(game: BoardGame): List<Play>
     fun findAllByScoresAndId(
-        scores: kotlin.collections.MutableList<com.wkgp.model.Scores>,
+        scores: List<Score>,
         id: Int
-    ): kotlin.collections.MutableList<com.wkgp.model.Plays>?
-    fun findAllByScores(scores: MutableList<Scores>): MutableList<Plays>
+    ): List<Play>?
+
+    fun findAllByScores(scores: List<Score>): List<Play>
 }

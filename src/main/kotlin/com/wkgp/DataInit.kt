@@ -5,8 +5,8 @@ import com.wkgp.model.*
 import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import java.time.LocalDate
 import java.sql.Time
+import java.time.LocalDate
 
 @Configuration
 class DataInitializer {
@@ -24,9 +24,9 @@ class DataInitializer {
             return@CommandLineRunner
         }
 
-        val tag1 = tagRepository.save(Tags(id = 0, content = "Deck-building"))
-        val tag2 = tagRepository.save(Tags(id = 0, content = "Imprezowa"))
-        val tag3 = tagRepository.save(Tags(id = 0, content = "Przygodowa"))
+        val tag1 = tagRepository.save(Tag(id = 0, content = "Deck-building"))
+        val tag2 = tagRepository.save(Tag(id = 0, content = "Imprezowa"))
+        val tag3 = tagRepository.save(Tag(id = 0, content = "Przygodowa"))
 
         val p1 = playerRepository.save(
             Player(
@@ -102,7 +102,7 @@ class DataInitializer {
         )
 
         borrowingsRepository.save(
-            Borrowings(
+            Borrowing(
                 id = 0,
                 game = inst2,
                 borrower = p3,
@@ -112,7 +112,7 @@ class DataInitializer {
         )
 
         playsRepository.save(
-            Plays(
+            Play(
                 id = 0,
                 game = inst1,
                 playtime = Time.valueOf("01:00:00"),
@@ -121,6 +121,5 @@ class DataInitializer {
                 scores = mutableListOf()
             )
         )
-
     }
 }
