@@ -22,6 +22,7 @@ class CollectionController {
     fun findAll(@PathVariable id: Int): MutableList<Instance>? = instanceRepo.findAllByPlayer(playerRepo.findById(id)!!);
     @RequestMapping("/Game/{game_id:[0-9]+]}")
     fun findId(@PathVariable id: Int, @PathVariable game_id: Long) = instanceRepo.findAllByPlayerAndId(playerRepo.findById(id)!!, game_id);
+    fun findId(@PathVariable id: Int, @PathVariable game_id: Long) = instanceRepo.findByPlayerAndId(playerRepo.findById(id)!!, game_id);
     @RequestMapping("/Game/{name}")
     fun findName(@PathVariable id: Int, @PathVariable name: String): MutableList<Instance>?{
         val tmp_game: BoardGame? = boardGameRepo.findByName(name)
@@ -39,6 +40,8 @@ class CollectionController {
     @RequestMapping("/Game{game_id:[0-9]+]}/addRate{rate}")
     fun addRate(@PathVariable id:Int, @PathVariable , @PathVariable rate: Double){
 
+    fun addRate(@PathVariable id:Int, @PathVariable game_id:Long, @PathVariable rate: Double){
+        findId(id,game_id).rating = rate
     }
 
 }

@@ -12,5 +12,6 @@ interface InstancesRepository: CrudRepository<Instance, Long> {
     fun findAllByPlayer(player: Player): MutableList<Instance>;
     fun findAllByPlayerAndGame(player: Player, gra: BoardGame): MutableList<Instance>;
     fun findAllByPlayerAndId(player: Player, id: Long): MutableList<Instance>;
+    fun findByPlayerAndId(player: Player, id: Long): Instance;
     fun findAllByPlayerAndAvailable(player: Player,available: Boolean): MutableList<Instance>
 }
