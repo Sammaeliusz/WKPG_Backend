@@ -12,7 +12,6 @@ interface PlayerRepository : CrudRepository<Player, Long>{
     fun findByEmailIsLikeIgnoreCase(email: String): MutableList<Player>
 <<<<<<< Updated upstream
 
-}}
 }
 =======
 }

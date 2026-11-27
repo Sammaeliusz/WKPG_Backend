@@ -15,7 +15,6 @@ interface BoardGameRepository: CrudRepository<BoardGame, Long> {
     fun findAllByWeightBetween(minWeight: kotlin.Double, maxWeight: kotlin.Double): MutableList<BoardGame>;
     fun findAllByTimeBetween(minTime: Time, maxTime: Time): MutableList<BoardGame>;
     fun findAllByGameTags(gameTags: MutableSet<Tags>): MutableList<BoardGame>;
-}}
 }
 =======
 interface BoardGameRepository : CrudRepository<BoardGame, Long> {

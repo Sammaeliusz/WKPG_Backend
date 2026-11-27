@@ -13,7 +13,6 @@ import java.time.LocalDate
 interface BorrowingsRepository: CrudRepository<Borrowings, Long> {
     fun findBorrowingsByBorrowerIs(borrower: Player): MutableList<Borrowings>
     fun findBorrowingsByGameIsIn(gry: kotlin.collections.MutableCollection<com.wkgp.model.BoardGame>): kotlin.collections.MutableList<com.wkgp.model.Borrowings>
-}}
 }
 =======
 interface BorrowingsRepository : CrudRepository<Borrowing, Long> {
