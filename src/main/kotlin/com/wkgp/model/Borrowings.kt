@@ -20,7 +20,7 @@ data class Borrowings(
     val id: Int,
     @ManyToOne
     @JoinColumn(name = "GRA_ID", referencedColumnName = "ID")
-    val game: BoardGame,
+    val game: Instance,
     @ManyToOne
     @JoinColumn(name = "Wypozyczajacy_ID", referencedColumnName = "ID")
     val borrower: Player,

@@ -9,10 +9,6 @@ import org.springframework.stereotype.Repository
 interface PlayerRepository : CrudRepository<Player, Long>{
     fun findById(id: Int): Player?;
     fun findByName(@Param("name") name: String): Player?;
-    fun findByEmailIsLikeIgnoreCase(email: String): MutableList<Player>
-<<<<<<< Updated upstream
+    fun findByEmailIsLikeIgnoreCaseAndPin(email: String, PIN:Int): Player?
 
 }
-=======
-}
->>>>>>> Stashed changes

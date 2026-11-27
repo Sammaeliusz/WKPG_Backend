@@ -35,4 +35,10 @@ class CollectionController {
     fun findAval(@PathVariable id: Int) = instanceRepo.findAllByPlayerAndAvailable(playerRepo.findById(id)!!, true);
     @RequestMapping("/Unavaliable")
     fun findUnaval(@PathVariable id: Int) = instanceRepo.findAllByPlayerAndAvailable(playerRepo.findById(id)!!, false);
+
+    @RequestMapping("/Game{game_id:[0-9]+]}/addRate{rate}")
+    fun addRate(@PathVariable id:Int, @PathVariable , @PathVariable rate: Double){
+
+    }
+
 }
