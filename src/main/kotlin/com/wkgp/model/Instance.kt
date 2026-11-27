@@ -28,7 +28,6 @@ data class Instance(
     @Column(name="Dostepna")
     val available: Boolean,
     @Column(name = "Ocena")
-    val rating: Int,
     var rating: Double,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(name = "TAG_GRY", joinColumns = [(JoinColumn(name = "Instancja_Id"))], inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))])
