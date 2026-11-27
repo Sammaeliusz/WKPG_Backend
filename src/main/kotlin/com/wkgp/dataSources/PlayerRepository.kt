@@ -13,6 +13,7 @@ interface PlayerRepository : CrudRepository<Player, Long>{
 <<<<<<< Updated upstream
 
 }}
+}
 =======
 }
 >>>>>>> Stashed changes
