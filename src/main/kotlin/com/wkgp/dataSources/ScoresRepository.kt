@@ -1,12 +1,12 @@
 package com.wkgp.dataSources
 
 import com.wkgp.model.Player
-import com.wkgp.model.Scores
+import com.wkgp.model.Score
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface ScoresRepository: CrudRepository<Scores, Long> {
-    fun findAllByPlayer(player: com.wkgp.model.Player): kotlin.collections.MutableList<com.wkgp.model.Scores>?
-    fun findFirstByPlayer(player: Player): Scores;
+interface ScoresRepository : CrudRepository<Score, Long> {
+    fun findAllByPlayer(player: Player): List<Score>
+    fun findFirstByPlayer(player: Player): Score
 }

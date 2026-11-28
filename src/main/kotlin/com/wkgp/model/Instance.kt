@@ -1,35 +1,28 @@
 package com.wkgp.model
 
-import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.FetchType
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.JoinTable
-import jakarta.persistence.ManyToMany
-import jakarta.persistence.ManyToOne
-import jakarta.persistence.Table
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "KOLEKCJA")
-data class Instance(
+class Instance(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    var id: Int,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Wlasciciel_ID", referencedColumnName = "ID")
-    val player: Player,
+    var player: Player,
     @ManyToOne
     @JoinColumn(name = "GRA_ID", referencedColumnName = "ID")
-    val game: BoardGame,
-    @Column(name="Dostepna")
-    val available: Boolean,
+    var game: BoardGame,
+    @Column(name = "Dostepna")
+    var available: Boolean,
     @Column(name = "Ocena")
     var rating: Double,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
-    @JoinTable(name = "TAG_GRY", joinColumns = [(JoinColumn(name = "Instancja_Id"))], inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))])
-    val gameTags: MutableSet<Tags>,
+    @JoinTable(
+        name = "TAG_GRY",
+        joinColumns = [(JoinColumn(name = "Instancja_Id"))],
+        inverseJoinColumns = [(JoinColumn(name = "Tag_Id"))]
     )
+    var gameTags: MutableSet<Tag>?
+)
