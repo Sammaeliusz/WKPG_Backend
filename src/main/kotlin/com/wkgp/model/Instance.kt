@@ -17,7 +17,7 @@ class Instance(
     @Column(name = "Dostepna")
     var available: Boolean,
     @Column(name = "Ocena")
-    var rating: Int,
+    var rating: Double,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(
         name = "TAG_GRY",

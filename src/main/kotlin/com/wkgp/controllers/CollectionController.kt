@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/collection{id}")
+@RequestMapping("/collection{id:[0-9]+}")
 class CollectionController(
     val instanceRepo: InstancesRepository,
     val boardGameRepo: BoardGameRepository,
@@ -20,14 +20,14 @@ class CollectionController(
     fun findAll(@PathVariable id: Int): MutableList<Instance>? =
         instanceRepo.findAllByPlayer(playerRepo.findById(id)!!)
 
-    @RequestMapping("/game/{gameId}")
+    @RequestMapping("/game/{gameId[0-9]+]}")
     fun findId(@PathVariable id: Int, @PathVariable gameId: Long) =
         instanceRepo.findAllByPlayerAndId(playerRepo.findById(id)!!, gameId)
 
     @RequestMapping("/game/{name}")
-    fun findName(@PathVariable id: Int, @PathVariable name: String): List<Instance> {
-        val tmpGame = boardGameRepo.findByName(name) ?: return emptyList()
-        return instanceRepo.findAllByPlayerAndGame(playerRepo.findById(id), tmpGame)
+    fun findName(@PathVariable id: Int, @PathVariable name: String): MutableList<Instance>? {
+        val tmpGame = boardGameRepo.findByName(name) ?: return null
+        return instanceRepo.findAllByPlayerAndGame(playerRepo.findById(id)!!, tmpGame)
     }
 
     @RequestMapping("/avaliable")
@@ -35,4 +35,10 @@ class CollectionController(
 
     @RequestMapping("/unavaliable")
     fun findUnaval(@PathVariable id: Int) = instanceRepo.findAllByPlayerAndAvailable(playerRepo.findById(id), false)
+
+    @RequestMapping("/Game{game_id:[0-9]+]}/addRate{rate}")
+    fun addRate(@PathVariable id:Int, @PathVariable game_id:Long, @PathVariable rate: Double){
+        findId(id,game_id).rating = rate
+    }
+
 }
