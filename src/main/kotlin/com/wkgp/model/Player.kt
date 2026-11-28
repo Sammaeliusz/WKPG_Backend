@@ -33,5 +33,5 @@ data class Player(
     val friends: MutableSet<Player>?,
     @ManyToMany(cascade = [(CascadeType.MERGE)])
     @JoinTable(name = "TAG_GRACZE", joinColumns = [(JoinColumn(name = "Gracz_Id"))])
-    val playerTags: MutableSet<Tags>?
+    val playerTags: MutableSet<PlayerTags>?
 )
